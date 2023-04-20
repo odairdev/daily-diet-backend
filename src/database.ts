@@ -1,6 +1,8 @@
 import { knex as setupKnex, Knex} from 'knex'
 import { env } from './env'
 
+if (!process.env.DATABASE_URL) throw new Error('Database url not found.')
+
 export const config: Knex.Config = {
   client: 'sqlite',
   connection: {
